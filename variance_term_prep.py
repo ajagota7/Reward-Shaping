@@ -2,7 +2,7 @@ from importance_weights import calculate_importance_weights
 import numpy as np
 import torch
 
-def variance_terms_tens(eval_policy, behav_policy, behavior_policies):
+def variance_terms_tens(eval_policy, behav_policy, behavior_policies, gridworld):
   # Initialize lists to store axis data for each policy
   t = []
   s = []
@@ -11,7 +11,7 @@ def variance_terms_tens(eval_policy, behav_policy, behavior_policies):
   r = []
   g_last = []
   w_last = []
-  w = calculate_importance_weights(eval_policy, behav_policy, behavior_policies)
+  w = calculate_importance_weights(eval_policy, behav_policy, behavior_policies, gridworld)
   psi = []
 
   for index, policy in enumerate(behavior_policies):

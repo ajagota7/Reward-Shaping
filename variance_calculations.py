@@ -2,7 +2,7 @@ from importance_weights import calculate_importance_weights
 import numpy as np 
 import torch
 
-def var_terms_is(eval_policy, behav_policy, behavior_policies, num_bootstraps):
+def var_terms_is(eval_policy, behav_policy, behavior_policies, num_bootstraps, gridworld):
   # Initialize lists to store axis data for each policy
   t = []
   s = []
@@ -13,7 +13,7 @@ def var_terms_is(eval_policy, behav_policy, behavior_policies, num_bootstraps):
   r = []
   g_last = []
   w_last = []
-  w = calculate_importance_weights(eval_policy, behav_policy, behavior_policies)
+  w = calculate_importance_weights(eval_policy, behav_policy, behavior_policies, gridworld)
   psi = []
 
   for index, policy in enumerate(behavior_policies):
@@ -68,7 +68,7 @@ def var_terms_is(eval_policy, behav_policy, behavior_policies, num_bootstraps):
 
 
 
-def var_terms_scope(eval_policy, behav_policy, behavior_policies, feature_net, num_bootraps):
+def var_terms_scope(eval_policy, behav_policy, behavior_policies, feature_net, num_bootraps, gridworld):
   # Initialize lists to store axis data for each policy
   t = []
   s = []
@@ -79,7 +79,7 @@ def var_terms_scope(eval_policy, behav_policy, behavior_policies, feature_net, n
   r = []
   g_last = []
   w_last = []
-  w = calculate_importance_weights(eval_policy, behav_policy, behavior_policies)
+  w = calculate_importance_weights(eval_policy, behav_policy, behavior_policies, gridworld)
   psi = []
 
   for index, policy in enumerate(behavior_policies):
