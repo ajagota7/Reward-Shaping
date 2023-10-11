@@ -19,7 +19,7 @@ def create_policy_set(env, policy_func, policy_map, num_episodes):
         timestep = 0  # Initialize timestep counter
         while not done:
             state = env.agent_position  # Get the current state
-            action = agent.select_action(lambda: policy_func(state, policy_map))
+            action = agent.select_action(lambda: policy_func(state, policy_map, env))
             next_state, reward, done = env.step(action)
             dist_to_terminal = 0.8 * manhattan_distance(state, env.end)
 
