@@ -5,8 +5,8 @@ def random_policy():
     # Choose a random action
     return np.random.choice(["up", "down", "left", "right"])
 
-def run_policy(agent_position, quadrant_policy_map):
-    action_probs = get_quadrant_policy(agent_position, quadrant_policy_map)
+def run_policy(agent_position, quadrant_policy_map, gridworld):
+    action_probs = get_quadrant_policy(agent_position, quadrant_policy_map, gridworld)
     return np.random.choice(list(action_probs.keys()), p=list(action_probs.values()))
 
 def manhattan_distance(pos1, pos2):
